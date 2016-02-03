@@ -7,7 +7,7 @@ var plugins = require('gulp-load-plugins')({
 });
 
 var srcDir = "app/";
-var buildDir = srcDir + '/build';
+var buildDir = srcDir + 'build/';
 var task = plugins.util.env._[0];
 var bourbon = require('node-bourbon').includePaths;
 
@@ -49,7 +49,7 @@ gulp.task('scripts', function() {
 		b.bundle().on('error',reportError)
 			.pipe(plugins.source('main.js'))
 			.pipe(!watch ? plugins.streamify(plugins.uglify()) : plugins.util.noop())
-			.pipe(gulp.dest(buildDir + '/js'))
+			.pipe(gulp.dest(buildDir + 'js/'))
 			.pipe(plugins.browserSync.reload({
 				stream: true
 			}));
@@ -84,7 +84,7 @@ gulp.task('bs-reload', function() {
 gulp.task('default', ['styles', 'scripts', 'browser-sync'], function() {
 	gulp.watch(srcDir + '*.html', ['bs-reload']);
 	gulp.watch(srcDir + 'src/scss/**/*.scss', ['styles']);
-	gulp.watch(srcDir + '/src/js/main.js', ['scripts']);
+	gulp.watch(srcDir + 'src/js/main.js', ['scripts']);
 });
 
 gulp.task('build', ['styles', 'scripts']);
