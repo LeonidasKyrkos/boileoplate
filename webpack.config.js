@@ -9,16 +9,17 @@ const BUILD = './app/build';
 
 // util
 const BASE_CSS_LOADER = 'css?sourceMap';
+const env = process.env.NODE_ENV || 'development';
 
 // modules 
 webpackConfig = {
-	env: process.env.NODE_ENV || 'development',
+	env: env,
 	globals: {
 		'process.env'  : {
-			'NODE_ENV' : JSON.stringify(config.env)
+			'NODE_ENV' : JSON.stringify(env)
 		},
-		'__DEV__'      : config.env === 'development',
-		'__PROD__'     : config.env === 'production',
+		'__DEV__'      : env === 'development',
+		'__PROD__'     : env === 'production',
 	},
 	entry: [
 		ENTRY,
