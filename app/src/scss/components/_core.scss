@@ -4,6 +4,7 @@ html {
 
 body {
     @include font-size($fzBase);
+    font-family: $ffBase;
     line-height: ($lhBase / $fzBase);
     color: black;
 }

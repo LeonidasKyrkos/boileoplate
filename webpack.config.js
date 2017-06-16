@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const bourbon = require('node-bourbon').includePaths;
+const autoprefixer = require('autoprefixer');
 
 // paths
 const SRC = './app/src';
@@ -15,11 +15,11 @@ const env = process.env.NODE_ENV || 'development';
 webpackConfig = {
 	env: env,
 	globals: {
-		'process.env'  : {
-			'NODE_ENV' : JSON.stringify(env)
+		'process.env': {
+			'NODE_ENV': JSON.stringify(env)
 		},
-		'__DEV__'      : env === 'development',
-		'__PROD__'     : env === 'production',
+		'__DEV__': env === 'development',
+		'__PROD__': env === 'production',
 	},
 	entry: [
 		ENTRY,
@@ -31,9 +31,6 @@ webpackConfig = {
 		filename: 'bundle.js'
 	},
 	devtool: 'inline-source-map',
-	sassLoader: {
-		includePaths: [bourbon]
-	},
 	module: {
 		loaders: [
 			{
@@ -43,10 +40,13 @@ webpackConfig = {
 				include: path.join(__dirname, 'app/src/js')
 			},
 			{
-				test    : /\.scss$/,
-				loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
+				test: /\.scss$/,
+				loaders: ["style-loader", "css-loader?sourceMap", "postcss-loader?sourceMap", "sass-loader?sourceMap"]
 			}
-		]
+		],
+		postcss: function () {
+			return [autoprefixer];
+		}
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()

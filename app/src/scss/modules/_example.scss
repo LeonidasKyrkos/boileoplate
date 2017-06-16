@@ -1,0 +1,24 @@
+$module:               'name';
+
+.#{$module} {
+	width: em(600);
+	max-width: 100%;
+	margin: 0 auto;
+
+	&__thing {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__thing--with-margin {
+		@extend .#{$module}__thing;
+		margin-bottom: em(20);
+	}
+
+	&__thing-with-local-font-size {
+		$fz: 14;
+		@include font-size($fz);
+		padding: em(20,$fz); // will grow or shrink if we alter $fz
+		margin-bottom: 2rem; // independent of local font size definition
+	}
+}

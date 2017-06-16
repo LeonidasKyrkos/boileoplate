@@ -1,0 +1,13 @@
+%col {
+	&--2 {
+		display: inline-block;
+		width: 50%;
+		vertical-align: top;
+	}
+
+	&--3 {
+		display: inline-block;
+		vertical-align: top;
+		width: 100/3 * 1%;
+	}
+}

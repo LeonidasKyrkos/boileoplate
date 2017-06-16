@@ -1,8 +1,15 @@
-@import 'bourbon';
+// Utilities and helpers
 @import 'utils/variables';
 @import 'utils/custom-mixins';
 @import 'utils/media-queries';
 @import 'utils/resets';
-@import 'utils/placeholders';
+
+// Placeholders
+@import 'utils/placeholders/columns';
+
+// Core components -- root level shit that's super common
 @import 'components/core';
 @import 'components/typography';
+
+// Modules
+@import 'modules/example';
