@@ -2,7 +2,7 @@
 
 A currently reasonable starting point for my work.
 
-##How to use:
+## How to use:
 
 System is built on webpack and uses webpack's dev server.
 
