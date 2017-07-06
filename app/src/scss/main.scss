@@ -1,15 +1,20 @@
-// Utilities and helpers
-@import 'utils/variables';
-@import 'utils/custom-mixins';
-@import 'utils/media-queries';
-@import 'utils/resets';
+// Settings
+@import "settings/variables";
 
-// Placeholders
-@import 'utils/placeholders/columns';
+// Tools
+@import "tools/mixins";
+@import "tools/placeholders";
 
-// Core components -- root level shit that's super common
-@import 'components/core';
-@import 'components/typography';
+// Generic
+@import "generic/reset";
 
-// Modules
-@import 'modules/example';
+// Elements
+@import "elements/general";
+@import "elements/page";
+@import "elements/typography";
+
+// Objects
+
+// Components
+
+// Utilities
